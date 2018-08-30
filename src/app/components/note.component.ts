@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-note',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note.component.css']
 })
 export class NoteComponent implements OnInit {
-  title = "Form"
+  title = "Form";
+  thought : NgForm;
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  addMyThought(thought: string){
+
+  }
 }

@@ -1,3 +1,18 @@
-<p>
+<mat-toolbar color="warn">
   {{title}}
-</p>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</mat-toolbar>
+
+<form #thought="ngForm" (NgSubmit)="addMyThought(thought)">
+  <mat-form-field>
+    <input type="text" name="thoughts" placeholder="Enter your name" required ngModel matInput color="accent">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="Email" name="email" placeholder="End your Email" required ngModel matInput>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="warn">
+    <mat-icon >home</mat-icon>
+    Add</button>
+</form>
