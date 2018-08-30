@@ -1,18 +1,43 @@
-<mat-toolbar color="warn">
-  {{title}}
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</mat-toolbar>
+<!--<mat-toolbar color="warn">
+{{title}}
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</mat-toolbar>-->
 
-<form #thought="ngForm" (NgSubmit)="addMyThought(thought)">
+<form #thought="ngForm" (NgSubmit)="addMyThought(thought)" fxLayout="column row">
+  <h2>{{thought.invalid}}</h2>
+  
   <mat-form-field>
-    <input type="text" name="thoughts" placeholder="Enter your name" required ngModel matInput color="accent">
+    <input type="text" name="name" placeholder="Enter your name" #nameField="ngModel" 
+    required minlength="2" maxlength="10" ngModel matInput color="accent">
+    <mat-hint>Your Official name</mat-hint>
   </mat-form-field>
 
   <mat-form-field>
-    <input type="Email" name="email" placeholder="End your Email" required ngModel matInput>
+    <input type="email" name="email" placeholder="End your Email" #emailField="ngModel"   
+    required ngModel matInput email>
+    <mat-hint>Your Email</mat-hint>
+    <mat-error *ngIf="emailField.hasError('email')">Must be a valid email</mat-error>
   </mat-form-field>
 
-  <button type="submit" mat-raised-button color="warn">
-    <mat-icon >home</mat-icon>
-    Add</button>
+  <mat-form-field>
+      <input type="date" name="tod" placeholder="Today's date" ngModel matInput [matDatepicker]="mydate">
+
+      <mat-datepicker-toggle matSuffix [for]="mydate"></mat-datepicker-toggle>
+      <mat-datepicker #mydate></mat-datepicker>
+
+  </mat-form-field>
+
+ 
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+
+    <button type="reset" mat-button mat-raised-button color="accent">
+      <mat-icon>clear</mat-icon>Clear
+    </button>
+
+    <button type="submit" mat-button mat-raised-button color="primary">
+      <mat-icon>home</mat-icon>Add
+    </button>
+
+  </div>
+
 </form>
