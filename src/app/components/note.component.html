@@ -3,6 +3,16 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </mat-toolbar>-->
 
+<mat-toolbar color="accent" 
+    fxLayout="row column"
+    fxLayoutAlign="space-between" center>
+    <span>Through Of The Day</span>
+    
+    <button type="button" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+
 <form #thought="ngForm" (NgSubmit)="addMyThought(thought)" fxLayout="column row">
   <h2>{{thought.invalid}}</h2>
   
